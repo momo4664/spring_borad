@@ -29,6 +29,7 @@ public class MemberController {
 	public MemberController(){
 		String config ="classpath:applicationJDBC.xml";
 		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext(config);
+		
 		JdbcTemplate template = ctx.getBean("template",JdbcTemplate.class);
 		Constant.template = template;
 	}
@@ -54,7 +55,7 @@ public class MemberController {
 		result = member.loginChk(model, request);
 		if (result) {
 			HttpSession session = request.getSession();
-			session.setAttribute("state", "·Î±×ÀÎ");
+			session.setAttribute("state", "ï¿½Î±ï¿½ï¿½ï¿½");
 			return "redirect:successLogin";
 		}
 		else {
@@ -103,7 +104,7 @@ public class MemberController {
 	}
 	@RequestMapping("cookieChk")
 	public void cookieChk(HttpServletResponse response) {
-		Cookie cook = new Cookie("myCookie", "³ªÀÇÄíÅ°");
+		Cookie cook = new Cookie("myCookie", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°");
 		cook.setMaxAge(10);
 		cook.setPath("/");
 		response.addCookie(cook);
